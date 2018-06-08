@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+	
+	table,td{
+		border: 1px solid blue;
+	}
+
+</style>
+<p id="demo"></p>
+
+<body>
+<b>Adding Name:</b><button onclick="myFunction()">Add name</button>
+
+
+<script>
+	
+function myFunction() {
+     var txt;
+     var table= document.getElementById("myTable");
+   
+    var row   = table.insertRow(0);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+   
+    cell1.innerHTML = cell2.innerHTML = row;
+    
+    var name = prompt("Please enter your name:", "Zin Moe Han");
+    if (!name) {
+        txt  = "You must type a name!";
+    }
+     else {
+        txt = name;
+    }
+    document.getElementById("myTable").innerHTML = txt;
+ 	
+
+}
+</script>
+<table id="myTable">
+ <tr>
+    <td></td>
+    <td></td>
+   
+  </tr>
+ 
+</table>
+</body>
+</html>
