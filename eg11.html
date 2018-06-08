@@ -1,0 +1,19 @@
+<html>
+<head></head>
+<body>
+
+
+<select id="months"></select>
+<script>
+var months = [
+"Jan", "Feb", "Mar", "Apr", "May", "Jun",
+"Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+var data, i = 0, len = months.length;
+while(i < len) {
+data += "<option>" + months[i] + "</option>";
+i++;
+}
+document.getElementById("months").innerHTML = data;
+</script>
+</body>
+</html>
