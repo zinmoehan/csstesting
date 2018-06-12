@@ -6,30 +6,39 @@
 <body>
 
 <ul id="myList">
-      
+	
 </ul>
+    
+
 
 <script>
-function myfunction() {
-	 var node = document.createElement("LI");
-     var textnode= document.createElement(document.getElementById("myList"));
-    node.appendChild(textnode);
-    document.getElementById("myList").appendChild(node);
-}
+function myfunction() 
+{ 
+	//create list
+	//create ul
+	//get from text box
+	//create li
+	//insett text into li
+	//insert li into ul
 
+    var code=document.getElementById("myList");
 
-function validateForm() {
-    var x = document.forms["myForm"]["fname"].value;
-    if (x == "") {
-        alert("Name must be filled out");
-        return false;
-    }
-}
+    var textnode= document.getElementById("test").value;
+
+	var li = document.createElement("li");
+    
+    li.innerHTML= textnode;
+
+    code.appendChild(li);
+  }
+    
+    
+
 </script>
-<form name="myForm"  onsubmit="myfunction()" method="post">
-Name: <input type="text" name="fname">
-<input type="submit" value="Add to list">
-</form>
+
+Name: <input type="text" name="fname" id="test">
+<button onclick="myfunction()">ADD</button>
+
 
 </body>
 </html>
