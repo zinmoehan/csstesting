@@ -1,0 +1,38 @@
+
+<html>
+<head></head.>
+<body>
+<h1>To-Do List</h1>
+ <input type="text" id="txt1" placeholder="Write something....." />
+ <input type="button" value="Add List" onclick="addList('ToDoListTable')" " />
+ <table id="ToDoListTable" width="350px" ></table>
+        
+<script>
+    function addList(ToDoListTable) {
+ 
+       var table = document.getElementById(ToDoListTable);
+       var rowCount = table.rows.length;
+       var row = table.insertRow(rowCount);
+
+          
+        var cell1 = row.insertCell(0);
+            var element1 = document.createElement("input");
+            element1.type = "text";
+            element1.style.width="100%";
+            element1.value= document.getElementById('txt1').value;;
+            cell1.appendChild(element1);
+
+        var cell2 = row.insertCell(1);
+            var element2 = document.createElement("input");
+            element2.type = "checkbox";
+            cell2.appendChild(element2);
+            document.getElementById('txt1').value=" ";
+
+       }
+
+
+
+
+</script>
+</body>
+</html>
