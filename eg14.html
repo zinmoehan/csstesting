@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+body {
+  margin: 10;
+
+}
+
+
+
+ul li.checked {
+  background: white;
+  color: black;
+  text-decoration: line-through;
+}
+
+
+
+.close {
+  position: absolute;
+ cursor: pointer;
+}
+
+.close:hover {
+  background-color: red;
+  color: white;
+  padding: 0.1%;
+}
+
+.header {
+  
+  color: white;
+  text-align: center;
+}
+
+.header:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+input {
+  
+  width: 20%;
+  padding: 8px;
+  float: left;
+  font-size: 16px;
+}
+
+
+.addBtn {
+  padding: 10px;
+  width: 10%;
+  background: blue;
+  color: yellow;
+  float: left;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 0;
+}
+
+.addBtn:hover {
+  background-color: pink;
+}
+</style>
+</head>
+<body>
+
+<div id="myDIV" class="header">
+  <h2 style="margin:5px">My To Do List</h2>
+  <input type="text" id="myInput" placeholder="Write Somethings......">
+  <button onclick="newElement()" class="addBtn">Add</button>
+</div>
+
+<ul id="myUL">
+  <li>Wash the clothes</li>
+  <li class="checked">Cooks the lunch</li>
+  <li>Go shopping</li>
+  <li>Clean the house</li>
+  <li>Dry the clothes</li>
+  <li>Iron the dry clothes</li>
+</ul>
+
+<script>
+// Create a "close" button and append it to each list item
+var myNodelist = document.getElementsByTagName("LI");
+
+for (var i = 0; i < myNodelist.length; i++) {
+  var span = document.createElement("SPAN");   //like creating row
+  var txt = document.createTextNode("\u00D7"); //create close sign
+  span.className = "close";
+  span.appendChild(txt);
+  myNodelist[i].appendChild(span);
+}
+
+// Click on a close button to hide the current list item
+var close = document.getElementsByClassName("close");
+
+for (var i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+  }
+}
+
+// Add a "checked" symbol when clicking on a list item
+var list = document.querySelector('ul');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+
+// Create a new list item when clicking on the "Add" button
+function newElement() {
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("myInput").value;
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') {
+    alert("You must write something!");
+  } else {
+    document.getElementById("myUL").appendChild(li);
+  }
+  document.getElementById("myInput").value = "";
+
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
+
+  for (var i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+  }
+}
+</script>
+</body>
+</html>
